@@ -3,47 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <title>Carambar & co - Blagues</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 600px;
-      margin: 50px auto;
-      text-align: center;
-    }
-    button {
-      font-size: 1.2em;
-      padding: 10px 20px;
-      cursor: pointer;
-    }
-    #blague {
-      margin-top: 20px;
-      font-size: 1.1em;
-      min-height: 50px;
-      color: #333;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Bienvenue chez Carambar & co</h1>
-  <button id="btn-blague">Une blague pour moi !</button>
-  <div id="blague">Cliquez sur le bouton pour une blague.</div>
+  <header>
+    <h1>Bienvenue chez Carambar & co !</h1>
+  </header>
+  
+  <main>
+    <button id="btn-blague">Afficher une blague</button>
+    <p id="blague"></p>
+  </main>
 
-  <script>
-    const btn = document.getElementById('btn-blague');
-    const blagueDiv = document.getElementById('blague');
-
-    btn.addEventListener('click', async () => {
-      blagueDiv.textContent = 'Chargement...';
-      try {
-        const response = await fetch('https://ton-api.onrender.com/api/v1/blagues/random');
-        if (!response.ok) throw new Error('Erreur réseau');
-        const data = await response.json();
-        blagueDiv.textContent = data.texte;
-      } catch (error) {
-        blagueDiv.textContent = 'Oups, impossible de récupérer la blague.';
-        console.error(error);
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
