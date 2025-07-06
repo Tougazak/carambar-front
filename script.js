@@ -8,6 +8,9 @@ const API_URL = 'https://carambar-api-4ox1.onrender.com/api/v1/blagues/random';
 // Ajoute un événement au clic du bouton
 btnBlague.addEventListener('click', async () => {
   try {
+    // Affiche un message de chargement pendant l'appel à l'API
+    blagueParagraphe.textContent = 'Chargement…';
+
     // Appelle l'API pour récupérer une blague aléatoire
     const response = await fetch(API_URL);
     if (!response.ok) throw new Error('Erreur réseau');
@@ -22,3 +25,4 @@ btnBlague.addEventListener('click', async () => {
     console.error(error);
   }
 });
+
